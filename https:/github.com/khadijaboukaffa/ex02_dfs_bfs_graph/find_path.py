@@ -15,6 +15,8 @@ def bfs_path(graph, start, goal):
     """
     # La file contient des chemins (liste de noeuds)
     queue = [[start]]
+    print(' ----------- queue ----------')
+    print(queue)
 
     # Liste des noeuds visités
     visited = []
@@ -22,9 +24,13 @@ def bfs_path(graph, start, goal):
     while queue:
         # On prend le premier chemin
         path = queue.pop(0)
+        print(' -------------- path -----------')
+        print(path)
 
         # On regarde le dernier noeud du chemin
         node = path[-1]
+        print(' -------------- node -----------')
+        print(node)
 
         # Si on a trouvé le but → on retourne le chemin
         if node == goal:
@@ -37,10 +43,15 @@ def bfs_path(graph, start, goal):
             # On explore les voisins
             for neighbor in graph[node]:
                 # On crée un nouveau chemin
+                print('------- meighbor------')
+                print(neighbor)
+                print('------- mew path ------')
                 new_path = path + [neighbor]
-
+                print(new_path)
                 # On ajoute ce chemin à la file
                 queue.append(new_path)
+                print(' ------ queue after -----')
+                print(queue)
 
     # Si aucun chemin trouvé
     return None
@@ -84,6 +95,7 @@ path = bfs_path(graph, "A", "G")
 print("Path found with BFS:")
 print(path)
 
+"""""
 path = bfs_path(graph, "A", "F")
 print("Path found with BFS:")
 print(path)
@@ -96,3 +108,4 @@ print(path)
 path = dfs_path(graph, "A", "F")
 print("Path found with DFS:")
 print(path)
+"""""
